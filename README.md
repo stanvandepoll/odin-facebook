@@ -1,0 +1,1 @@
+This Facebook mimic was made by Stan van de Poll as part of the Odin Project. This is the final project for the Rails course. Instructions can be found on: https://www.theodinproject.com/lessons/final-project. 
