@@ -1,2 +1,16 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
+
+<h2>List of all users: </h2>
+<ul>
+  <% @users.each do |user| %>
+  <li>
+    <p>Name: <%= user.name %></p>
+    <p>E-mail: <%= user.email %></p>
+    <%= form_for(current_user.friend_requests.build) do |f| %>
+      <div><%= hidden_field_tag :receiver_id, user.id %></div>
+      <%= f.submit "Send friend request" %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
