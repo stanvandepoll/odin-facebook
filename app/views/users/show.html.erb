@@ -7,4 +7,20 @@
 <% if current_user == @user %>
   <%= link_to "Incoming friend requests",
   incoming_requests_user_path(current_user) %>
+
+  <p>New post:</p>
+  <%= form_for(current_user.posts.build) do |post| %>
+
+    <div class="field">
+      <%= post.label :title %><br />
+      <%= post.text_field :title, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= post.label :body %><br />
+      <%= post.text_area :body, autofocus: true %>
+    </div>
+
+    <%= post.submit "Create post" %>
+  <% end %>
 <% end %>
