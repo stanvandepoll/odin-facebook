@@ -1,10 +1,11 @@
 <h1>Posts by <%= @author.name %>:</h1>
-
+<p><%= link_to "#{@author.name}'s profile", user_path(@author) %></p>
 <ul>
   <% @posts.each do |post| %>
   <li>
     <p>Title: <%= post.title %></p>
     <p>Body: <%= post.body %></p>
+    <p>Author: <%= post.user.name %></p>
     <p><%= post.likes.count %> likes</p>
 
     <%= form_for(post.likes.build) do |f| %>
