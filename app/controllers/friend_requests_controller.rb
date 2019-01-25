@@ -6,8 +6,12 @@ class FriendRequestsController < ApplicationController
   end
 
   def destroy
-    friend_request = FriendRequest.find_by_id(params[:request_id])
-    friend_request.delete
-    redirect_back(fallback_location: root_path, notice: "Friend request removed.")
+    if current_user.id != params[:id].to_i
+      redirect_back(fallback_location: root_path, notice: "The request is not meant for the signed in user")
+    else
+      friend_request = FriendRequest.find_by_id(params[:request_id])
+      friend_request.delete
+      redirect_back(fallback_location: root_path, notice: "Friend request removed.")
+    end
   end
 end

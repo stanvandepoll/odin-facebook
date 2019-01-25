@@ -7,6 +7,7 @@
   <li>
     <p>Name: <%= user.name %></p>
     <p>E-mail: <%= user.email %></p>
+    <%= link_to "Profile page", user_path(user) %>
     <%= form_for(current_user.outgoing_requests.build) do |f| %>
       <div><%= hidden_field_tag :receiver_id, user.id %></div>
       <%= f.submit "Send friend request" %>
