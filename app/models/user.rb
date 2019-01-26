@@ -16,6 +16,12 @@ class User < ApplicationRecord
   has_many :comments
   has_many :posts
 
+  after_create :send_welcome_email
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome_email.deliver_now
+  end
+
   def send_request(other_user)
     request = self.outgoing_requests.new(requester_id: self.id, 
       receiver_id: other_user.id)
