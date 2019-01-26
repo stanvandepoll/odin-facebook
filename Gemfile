@@ -30,6 +30,11 @@ gem 'jbuilder', '~> 2.5'
 # Use Devise for authentication
   gem 'devise'
 
+# Add option to sign in with facebook
+gem 'omniauth-facebook'
+# For storing environment variables
+gem 'figaro'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
