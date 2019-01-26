@@ -23,17 +23,17 @@ Friendship.create([
 
 Post.create([
   { title: "Stan's first post", body: "Just checking out the site's functionality.",
-    user_id: 1 },
+    user_id: 1, created_at: 5.hours.ago },
   { title: "Stan-ji's first post", body: "I don't know what to write.",
-    user_id: 2 },
+    user_id: 2, created_at: 10.hours.ago },
   { title: "facebook's first post", body: "Lorem Ipsum, blablabla.",
-    user_id: 3 },
+    user_id: 3, created_at: 2.days.ago },
   { title: "Strong Parameter's first post", body: "Lorem Ipsum, dolor sectum set amet.",
-    user_id: 4 },
+    user_id: 4, created_at: 30.minutes.ago },
   { title: "John Doe's first post", body: "Hey guys! I am an anonymous user person.",
-    user_id: 5 },
+    user_id: 5, created_at: 3.months.ago },
   { title: "Timeline test", body: "I am just putting in an extra post. This is also "+
-    "a bit to try out the timeline feature.", user_id: 1 }
+    "a bit to try out the timeline feature.", user_id: 1, created_at: Time.now }
 ])
 
 Like.create([

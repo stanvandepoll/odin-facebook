@@ -1,37 +1,4 @@
 <h1>Posts by <%= @author.name %>:</h1>
 <p><%= link_to "#{@author.name}'s profile", user_path(@author) %></p>
-<ul>
-  <% @posts.each do |post| %>
-  <li>
-    <p>Title: <%= post.title %></p>
-    <p>Body: <%= post.body %></p>
-    <p>Author: <%= post.user.name %></p>
-    <p><%= post.likes.count %> likes</p>
 
-    <%= form_for(post.likes.build) do |f| %>
-      <div><%= hidden_field_tag :user_id, current_user.id %></div>
-      <div><%= hidden_field_tag :post_id, post.id %></div>
-      <%= f.submit "like" %>
-    <% end %>
-
-    <%= form_for(post.comments.build) do |f| %>
-      <div><%= hidden_field_tag :user_id, current_user.id %></div>
-      <div><%= hidden_field_tag :post_id, post.id %></div>
-      <%= f.text_area :content %>
-      <%= f.submit "comment" %>
-    <% end %>
-
-    <% if post.comments.count > 0 %>
-      <p>Comments:</p>
-      <ul>
-        <% post.comments.where("id IS NOT NULL").each do |comment| %>
-          <li>
-            <p><%= comment.content %></p>
-            <p>by: <%= comment.user.name %></p>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-  </li>
-  <% end %>
-</ul>
+    <%= render 'posts' %>

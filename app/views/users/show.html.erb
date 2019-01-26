@@ -1,14 +1,16 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
+<%= gravatar_for @user %>
 <p>Name: <%= @user.name %></p>
 <p>E-mail: <%= @user.email %></p>
-<p><%= link_to "posts", posts_user_path(@user) %></p>
 <p>Friends:
     <% @user.friends.each do |friend| %>
       <%= link_to "#{friend.name}", user_path(friend) %>,
     <% end %>
 </p>
+<p><%= link_to "posts", posts_user_path(@user) %></p>
+
 
 <% if current_user == @user %>
   <%= link_to "Incoming friend requests",
@@ -30,3 +32,6 @@
     <%= post.submit "Create post" %>
   <% end %>
 <% end %>
+
+<% @posts = @user.posts %>
+<%= render 'posts' %>
