@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :posts
 
+  # commented out because it didn't work in production with heroku
   after_create :send_welcome_email
 
   def send_welcome_email
